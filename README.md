@@ -4,9 +4,7 @@ A responsive, buildless personal portfolio for GitHub Pages. The gallery include
 
 ## Publish with GitHub Pages
 
-1. Open the repository's **Settings → Pages**.
-2. Under **Build and deployment**, select **Deploy from a branch**.
-3. Select `main` and `/ (root)`, then save. The repository URL will be `https://xyzjustin-0918.github.io/junho_portfolio/` after Pages is enabled.
+The `.github/workflows/pages.yml` workflow publishes the site when changes reach `main`. If Pages has not been enabled for this repository yet, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source. The site URL is `https://xyzjustin-0918.github.io/junho_portfolio/` once the first deployment succeeds.
 
 ## Replace the sample frames
 
