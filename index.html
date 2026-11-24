@@ -1,103 +1,105 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3ee">
-  <meta name="description" content="Junho's visual journal: a small collection of places, light, and creative code.">
-  <title>Junho — A visual journal</title>
+  <meta name="theme-color" content="#fffaf0">
+  <meta name="description" content="서울대학교 첨단융합학부 학생의 교외교육과 기술 현장 카드뉴스 기록">
+  <title>전공 밖의 기록 — Junho</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <a class="wordmark" href="#top" aria-label="Junho home">J<span>.</span></a>
-      <nav aria-label="Main navigation">
-        <a href="#work">Selected frames</a>
-        <a href="#process">The process</a>
-        <a href="#about">About</a>
-      </nav>
-      <a class="top-note" href="#work"><span class="live-dot"></span> A visual journal <span class="note-year">· 2026</span></a>
+      <a class="wordmark" href="#top" aria-label="처음으로">J<span>.</span></a>
+      <nav aria-label="주요 메뉴"><a href="#archive">작업 모음</a><a href="#method">분류와 정렬</a><a href="#about">소개</a></nav>
+      <a class="top-note" href="#archive"><span class="live-dot"></span> SEOUL · 2026</a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span>PERSONAL PORTFOLIO</span><span class="eyebrow-rule"></span><span>SEOUL, KR</span></p>
-          <h1 id="hero-title">Looking closer.<br><em>Seeing differently.</em></h1>
-          <p class="hero-intro">A visual journal of quiet places, changing light, and the small details that make a moment stay.</p>
-          <a class="text-link" href="#work">Explore selected frames <span aria-hidden="true">↘</span></a>
-          <div class="hero-index"><span>01 — 03</span><span class="index-line"></span><span>FIELD NOTES</span></div>
+          <p class="eyebrow"><span>SEOUL NATIONAL UNIVERSITY</span><span class="eyebrow-rule"></span><span>FIELD NOTES</span></p>
+          <h1 id="hero-title">전공 밖에서 만난<br><em>기술의 장면들.</em></h1>
+          <p class="hero-intro">연구소와 기업의 현장을 찾아 듣고, 질문하고, 배운 내용을 카드뉴스로 기록했습니다. 지속가능한 수소 연구부터 AI 반도체 설계까지, 세 번의 교외교육을 한곳에 모았습니다.</p>
+          <a class="text-link" href="#archive">기록 살펴보기 <span aria-hidden="true">↘</span></a>
+          <div class="hero-index"><span>03 WORKS</span><span class="index-line"></span><span>12 CARD PAGES</span></div>
         </div>
-        <div class="hero-art" role="img" aria-label="Illustrated view of a quiet coast at dusk">
-          <img src="assets/coast-dusk.svg" alt="A quiet, illustrated coastline at dusk">
-          <div class="art-stamp"><span>36° 21′ N</span><span>COAST STUDY · 01</span></div>
-          <span class="hero-caption">Somewhere between the last light<br>and the walk back.</span>
-        </div>
-        <div class="hero-side-label">COLLECTED MOMENTS / VOL. 01</div>
+        <a class="hero-art" href="#archive" aria-label="카드뉴스 작업 모음으로 이동">
+          <img src="assets/cards/furiosa/artboard-1.jpg" alt="퓨리오사AI 카드뉴스 표지">
+          <span class="art-label"><span>현장 기록 · 03</span><strong>AI 반도체의<br>개발 현장을 찾다</strong><span>첨단융합학부 교외교육</span></span>
+          <span class="art-arrow" aria-hidden="true">↘</span>
+        </a>
+        <div class="hero-side-label">LEARNING OUTSIDE THE CLASSROOM</div>
       </section>
 
-      <section class="work-section section-wrap" id="work" aria-labelledby="work-title">
+      <section class="work-section section-wrap" id="archive" aria-labelledby="work-title">
         <div class="section-heading">
-          <div><p class="eyebrow"><span>01 / THE ARCHIVE</span></p><h2 id="work-title">Selected <em>frames</em></h2></div>
-          <p class="section-note">Small studies of a place, kept<br>for the way the light felt.</p>
+          <div><p class="eyebrow"><span>01 / THE ARCHIVE</span></p><h2 id="work-title">현장 기록 <em>모음</em></h2></div>
+          <p class="section-note">카드를 누르면 첨부한 장을<br>차례로 크게 볼 수 있어요.</p>
         </div>
         <div class="gallery-toolbar">
-          <div class="sort-controls" role="group" aria-label="Sort frames">
-            <span class="toolbar-label">ARRANGE BY</span>
-            <button class="sort-button is-active" type="button" data-sort="date" aria-pressed="true">Newest</button>
-            <button class="sort-button" type="button" data-sort="title" aria-pressed="false">Title A–Z</button>
-          </div>
-          <div class="view-controls" role="group" aria-label="Compare image edits">
-            <span class="toolbar-label">IMAGE VIEW</span>
-            <button class="view-button is-active" type="button" data-view="after" aria-pressed="true">After</button>
-            <span class="view-divider">/</span>
-            <button class="view-button" type="button" data-view="before" aria-pressed="false">Before</button>
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="기관·주제 검색" aria-label="작품 검색"></label>
+          <div class="sort-controls" role="group" aria-label="작품 정렬">
+            <span class="toolbar-label">정렬</span>
+            <button class="sort-button is-active" type="button" data-sort="date" aria-pressed="true">기본순</button>
+            <button class="sort-button" type="button" data-sort="title" aria-pressed="false">이름순</button>
           </div>
         </div>
+        <div class="filter-row" id="filters" role="group" aria-label="주제별 필터"></div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
         <div class="gallery-grid" id="gallery" aria-live="polite"></div>
-        <p class="demo-note"><span class="note-mark">✳</span> Illustrated sample frames are standing in for the original photos. Replace the files in <code>assets/</code> with your own images.</p>
+        <p class="archive-note"><span class="note-mark">✳</span> 각 작품은 대화에 첨부된 페이지로 구성했습니다. 원본 카드에 표시된 Artboard 번호를 그대로 유지했습니다.</p>
       </section>
 
-      <section class="process-section" id="process" aria-labelledby="process-title">
+      <section class="process-section" id="method" aria-labelledby="process-title">
         <div class="process-inner section-wrap">
           <div class="process-copy">
-            <p class="eyebrow eyebrow-light"><span>02 / BEHIND THE ORDER</span></p>
-            <h2 id="process-title">A little order,<br><em>by design.</em></h2>
-            <p>Both controls above use merge sort. It splits the frames into smaller groups, sorts each group, then merges them back in order.</p>
-            <div class="complexity"><span>TIME</span><strong>O(n log n)</strong><span class="complexity-divider"></span><span>SPACE</span><strong>O(n)</strong></div>
+            <p class="eyebrow eyebrow-light"><span>02 / HOW IT WORKS</span></p>
+            <h2 id="process-title">자료를 모으고,<br><em>차례를 만듭니다.</em></h2>
+            <p>주제별 분류에는 JavaScript Map을 사용했습니다. 검색어에 맞는 작품만 남긴 뒤, 이름순 정렬에는 병합 정렬을 적용합니다.</p>
+            <div class="complexity"><span>분류</span><strong>Map · O(n)</strong><span class="complexity-divider"></span><span>정렬</span><strong>Merge sort · O(n log n)</strong></div>
           </div>
           <div class="algorithm-card">
-            <div class="code-top"><span>THE SORTING FUNCTION</span><span class="code-lang">JAVASCRIPT</span></div>
-            <pre><code><span class="code-purple">function</span> <span class="code-yellow">mergeSort</span>(items, compare) {
-  <span class="code-purple">if</span> (items.length &lt;= <span class="code-orange">1</span>) <span class="code-purple">return</span> items;
+            <div class="code-top"><span>ARCHIVE ORGANIZER</span><span class="code-lang">JAVASCRIPT</span></div>
+            <pre><code><span class="code-purple">const</span> topics = <span class="code-purple">new</span> Map();
 
-  <span class="code-purple">const</span> middle = Math.floor(items.length / <span class="code-orange">2</span>);
-  <span class="code-purple">const</span> left = mergeSort(items.slice(<span class="code-orange">0</span>, middle), compare);
-  <span class="code-purple">const</span> right = mergeSort(items.slice(middle), compare);
+<span class="code-purple">for</span> (<span class="code-purple">const</span> work <span class="code-purple">of</span> works) {
+  <span class="code-purple">for</span> (<span class="code-purple">const</span> tag <span class="code-purple">of</span> work.tags) {
+    <span class="code-purple">if</span> (!topics.has(tag)) topics.set(tag, []);
+    topics.get(tag).push(work);
+  }
+}
 
-  <span class="code-purple">return</span> merge(left, right, compare);
-}</code></pre>
-            <div class="code-foot"><span><i></i> Recursive divide &amp; conquer</span><span>USED BY BOTH SORT BUTTONS</span></div>
+<span class="code-purple">const</span> ordered = mergeSort(matches, byTitle);</code></pre>
+            <div class="code-foot"><span><i></i> 주제 묶음 · 검색 · 정렬</span><span>3 WORKS / 12 PAGES</span></div>
           </div>
         </div>
-        <div class="process-bottom section-wrap"><span>THE SAME FRAMES, A DIFFERENT WAY THROUGH.</span><span>LESS NOISE. MORE TO NOTICE.</span></div>
+        <div class="process-bottom section-wrap"><span>FIELD NOTES, SORTED WITH CARE.</span><span>기록은 더 쉽게 찾을 수 있도록.</span></div>
       </section>
 
       <section class="about-section section-wrap" id="about" aria-labelledby="about-title">
         <p class="eyebrow"><span>03 / A NOTE</span></p>
         <div class="about-grid">
-          <h2 id="about-title">The best details<br>rarely ask for <em>attention.</em></h2>
-          <div class="about-copy"><p>This is a place to collect what catches the eye: a familiar street after rain, a view found by taking the longer way, the color of the sky just before it changes.</p><p>Made with curiosity, a camera, and a little code.</p><a class="text-link" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a></div>
+          <h2 id="about-title">수업에서 배운 것과<br>현장에서 만난 <em>사람들.</em></h2>
+          <div class="about-copy"><p>직접 보고 들은 기술은 교과서의 개념을 산업의 문제와 연결해 주었습니다. 이 페이지는 그 배움의 순간을 다시 꺼내 볼 수 있도록 만든 작은 아카이브입니다.</p><p>서울대학교 첨단융합학부 · Junho</p><a class="text-link" href="#top">처음으로 <span aria-hidden="true">↑</span></a></div>
         </div>
-        <div class="about-bottom"><span>JUNHO · VISUAL JOURNAL</span><span>BUILT WITH HTML, CSS &amp; MERGE SORT</span></div>
+        <div class="about-bottom"><span>JUNHO · FIELD NOTES</span><span>HTML, CSS, JAVASCRIPT</span></div>
       </section>
     </main>
-    <footer><span>© 2026 JUNHO</span><a href="#top" aria-label="Back to top">↑</a><span>SEOUL, SOUTH KOREA</span></footer>
+    <footer><span>© 2026 JUNHO</span><a href="#top" aria-label="맨 위로">↑</a><span>SEOUL, SOUTH KOREA</span></footer>
   </div>
+
+  <dialog class="viewer" id="viewer" aria-label="카드뉴스 뷰어">
+    <div class="viewer-shell">
+      <div class="viewer-head"><div><p class="viewer-kicker" id="viewer-kicker"></p><h2 id="viewer-title"></h2></div><button class="viewer-close" type="button" aria-label="닫기">×</button></div>
+      <div class="viewer-stage"><button class="viewer-nav previous" type="button" aria-label="이전 페이지">←</button><img id="viewer-image" alt=""><button class="viewer-nav next" type="button" aria-label="다음 페이지">→</button></div>
+      <div class="viewer-foot"><span id="viewer-page"></span><div class="viewer-dots" id="viewer-dots" aria-label="페이지 선택"></div><span class="viewer-hint">← → 키로 이동 · ESC 닫기</span></div>
+    </div>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>

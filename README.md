@@ -1,11 +1,22 @@
-# Junho — A visual journal
+# Junho · 전공 밖의 기록
 
-A responsive, buildless personal portfolio for GitHub Pages. The gallery includes two sorting controls that share a recursive merge sort implementation, plus a Before / After viewing mode.
+서울대학교 첨단융합학부 교외교육에서 만난 기술 현장을 한국어 카드뉴스 아카이브로 정리한 정적 웹사이트입니다.
 
-## Publish with GitHub Pages
+## 포함된 작업
 
-The `.github/workflows/pages.yml` workflow publishes the site when changes reach `main`. If Pages has not been enabled for this repository yet, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source. The site URL is `https://xyzjustin-0918.github.io/junho_portfolio/` once the first deployment succeeds.
+- 카카오 현장탐방 · 2026.10.02
+- 퓨리오사AI 반도체 · 2026.10.07
+- KIST 수소 연구 · 2026.10.06
 
-## Replace the sample frames
+각 작품은 대화에 첨부된 카드뉴스 4장씩으로 구성했습니다. 원본의 Artboard 번호는 그대로 표시합니다.
 
-The current gallery artwork is illustrated sample content. Replace the matching SVG files in `assets/` with your own images, then update the `image` paths and gallery descriptions in `script.js`. Keep the existing filenames or adjust the paths there.
+## 기능
+
+- Map 기반 주제 분류와 필터
+- 기관명·주제 검색
+- 병합 정렬 기반 날짜순·이름순 정렬
+- 키보드 조작을 지원하는 카드뉴스 확대 뷰어
+
+## 배포
+
+GitHub Pages가 `main` 브랜치의 정적 파일을 배포합니다.
