@@ -1,102 +1,55 @@
+const categories = ["교외교육", "비교과", "전공 톺아보기"];
+const pages = (folder, numbers) => numbers.map((number) => ({
+  number,
+  image: `assets/cards/${folder}/artboard-${number}.jpg`
+}));
+
 const works = [
-  {
-    id: "kakao", title: "카카오 현장탐방", subtitle: "카카오 · AI와 데이터", date: "2026-10-02", dateLabel: "2026.10.02",
-    description: "카카오 아지트에서 살펴본 AI 기술과 데이터 융합의 이야기.", tags: ["기업탐방", "AI·데이터", "교외교육"],
-    pages: [1, 3, 4, 5].map((number) => ({ number, image: `assets/cards/kakao/artboard-${number}.jpg` }))
-  },
-  {
-    id: "kist", title: "KIST 수소 연구", subtitle: "한국과학기술연구원 · 지속가능기술", date: "2026-10-06", dateLabel: "2026.10.06",
-    description: "청정수소 융합연구소와 수소연료전지 연구 현장을 만나다.", tags: ["수소", "지속가능성", "연구소"],
-    pages: [1, 3, 4, 5].map((number) => ({ number, image: `assets/cards/kist/artboard-${number}.jpg` }))
-  },
-  {
-    id: "furiosa", title: "퓨리오사AI 반도체", subtitle: "퓨리오사AI · AI 반도체", date: "2026-10-07", dateLabel: "2026.10.07",
-    description: "AI 추론용 반도체와 하드웨어·컴파일러의 협업을 살펴보다.", tags: ["AI 반도체", "하드웨어", "소프트웨어"],
-    pages: [1, 3, 4, 7].map((number) => ({ number, image: `assets/cards/furiosa/artboard-${number}.jpg` }))
-  },
-  {
-    id: "snuti-lounge-13", title: "다른 길을 걸어온 우리", subtitle: "SNUTI in Lounge #13 · 전공과 진로", date: "2026-09-29", dateLabel: "2026.09.29",
-    description: "다른 길을 걸어온 졸업생과 함께 전공과 진로를 묻다.", tags: ["전공·진로", "SNUTI in Lounge"],
-    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/snuti-lounge-13/slide-${number}.jpg` }))
-  },
-  {
-    id: "project-management", title: "엔지니어링 프로젝트 매니지먼트", subtitle: "SNUTI on Site #2 · 현장교육", date: "2026-07-16", dateLabel: "2026.07.16",
-    description: "박창우 교수와 함께 살펴본 엔지니어링 프로젝트 관리.", tags: ["프로젝트 관리", "공학", "SNUTI on Site"],
-    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/project-management/slide-${number}.jpg` }))
-  },
-  {
-    id: "major-talk", title: "미래 산업을 이끌 다섯 전공", subtitle: "SNUTI in Lounge #9 · 전공설명회", date: "2026-05-21", dateLabel: "2026.05.21",
-    description: "첨단융합학부 다섯 전공 학생들과 만나 전공 이야기를 나누다.", tags: ["전공·진로", "전공설명회", "SNUTI in Lounge"],
-    pages: [1, 2, 3, 4, 5, 6].map((number) => ({ number, image: `assets/cards/major-talk/slide-${number}.jpg` }))
-  },
-  {
-    id: "ego-trip-7", title: "Information for Inspiration", subtitle: "SNUTI in Lounge #8 · Ego Trip 7회차", date: "2026-05-20", dateLabel: "2026.05.20",
-    description: "이지성 교수와 함께한 영감과 정보에 관한 대화.", tags: ["Ego Trip", "예술·탐색", "SNUTI in Lounge"],
-    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/ego-trip-7/slide-${number}.jpg` }))
-  },
-  {
-    id: "ego-trip-6", title: "Sound Persona", subtitle: "SNUTI in Lounge #7 · Ego Trip 6회차", date: "2026-05-13", dateLabel: "2026.05.13",
-    description: "김규동 작곡가와 함께 소리와 사람의 이야기를 듣다.", tags: ["Ego Trip", "음악", "SNUTI in Lounge"],
-    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/ego-trip-6/slide-${number}.jpg` }))
-  },
-  {
-    id: "snuti-lounge-2", title: "그림을 통해 표현하는 나", subtitle: "SNUTI in Lounge #2 · Ego Trip 2회차", date: "2026-04-01", dateLabel: "2026.04.01",
-    description: "조수현 교수와 함께 그림으로 나를 표현해 보다.", tags: ["Ego Trip", "미술", "SNUTI in Lounge"],
-    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/snuti-lounge-2/slide-${number}.jpg` }))
-  },
-  {
-    id: "ego-trip-1", title: "그림을 통해 알아가는 나", subtitle: "SNUTI in Lounge #1 · Ego Trip 1회차", date: "2025-03-18", dateLabel: "2025.03.18",
-    description: "조수현 교수와 함께 그림을 매개로 나를 알아보다.", tags: ["Ego Trip", "미술", "SNUTI in Lounge"],
-    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/ego-trip-1/slide-${number}.jpg` }))
-  }
+  { id: "kakao", category: "교외교육", title: "카카오 현장탐방", subtitle: "카카오 · AI와 데이터", pages: pages("kakao", [1, 3, 4, 5]) },
+  { id: "kist", category: "교외교육", title: "KIST 수소 연구", subtitle: "한국과학기술연구원 · 지속가능기술", pages: pages("kist", [1, 3, 4, 5]) },
+  { id: "furiosa", category: "교외교육", title: "퓨리오사AI 반도체", subtitle: "퓨리오사AI · AI 반도체", pages: pages("furiosa", [1, 3, 4, 7]) },
+  { id: "snuti-lounge-13", category: "비교과", title: "다른 길을 걸어온 우리", subtitle: "SNUTI in Lounge #13 · 전공과 진로", pages: pages("snuti-lounge-13", [1, 2, 3]) },
+  { id: "project-management", category: "비교과", title: "엔지니어링 프로젝트 매니지먼트", subtitle: "SNUTI on Site #2 · 현장교육", pages: pages("project-management", [1, 2, 3, 4]) },
+  { id: "major-talk", category: "비교과", title: "미래 산업을 이끌 다섯 전공", subtitle: "SNUTI in Lounge #9 · 전공설명회", pages: pages("major-talk", [1, 2, 3, 4, 5, 6]) },
+  { id: "ego-trip-7", category: "비교과", title: "Information for Inspiration", subtitle: "SNUTI in Lounge #8 · Ego Trip 7회차", pages: pages("ego-trip-7", [1, 2, 3, 4]) },
+  { id: "ego-trip-6", category: "비교과", title: "Sound Persona", subtitle: "SNUTI in Lounge #7 · Ego Trip 6회차", pages: pages("ego-trip-6", [1, 2, 3, 4]) },
+  { id: "snuti-lounge-2", category: "비교과", title: "그림을 통해 표현하는 나", subtitle: "SNUTI in Lounge #2 · Ego Trip 2회차", pages: pages("snuti-lounge-2", [1, 2, 3]) },
+  { id: "ego-trip-1", category: "비교과", title: "그림을 통해 알아가는 나", subtitle: "SNUTI in Lounge #1 · Ego Trip 1회차", pages: pages("ego-trip-1", [1, 2, 3]) },
+  { id: "digital-healthcare", category: "전공 톺아보기", title: "디지털 헬스케어와 섬유 전극", subtitle: "전공 톺아보기 Ep.3 · 섬유전극의 미래", pages: pages("digital-healthcare", [1, 2, 3, 4, 5, 6]) },
+  { id: "tensor-core", category: "전공 톺아보기", title: "Tensor Core와 차세대 AI 반도체", subtitle: "전공 톺아보기 Ep.5 · 지능형 반도체의 미래", pages: pages("tensor-core", [1, 2, 3, 4, 5]) },
+  { id: "nlp", category: "전공 톺아보기", title: "자연어 처리의 미래", subtitle: "전공 톺아보기 Ep.4 · 융합 데이터과학", pages: pages("nlp", [1, 2, 3, 4, 5]) },
+  { id: "solid-state-battery", category: "전공 톺아보기", title: "전고체 배터리의 미래", subtitle: "전공 톺아보기 Ep.1 · 지속가능기술", pages: pages("solid-state-battery", [1, 2, 3, 4, 5, 6, 8]) }
 ];
 
-let activeSort = "date";
-let activeFilter = "전체";
+// Map keeps the archive at the three broad groupings the reader needs.
+const categoryMap = new Map(categories.map((category) => [
+  category,
+  works.filter((work) => work.category === category)
+]));
+
+let activeCategory = categories[0];
 let currentWork = null;
 let currentPage = 0;
 const gallery = document.querySelector("#gallery");
-const searchInput = document.querySelector("#search");
-const filtersEl = document.querySelector("#filters");
+const categoryNav = document.querySelector("#categories");
 const viewer = document.querySelector("#viewer");
-const topicMap = new Map();
 
-// Build the topic index once so the category chips and counts stay in sync.
-for (const work of works) {
-  for (const tag of work.tags) {
-    if (!topicMap.has(tag)) topicMap.set(tag, []);
-    topicMap.get(tag).push(work);
-  }
-}
+document.querySelector("#total-works").textContent = works.length;
+document.querySelector("#total-pages").textContent = works.reduce((sum, work) => sum + work.pages.length, 0);
 
-function mergeSort(items, compare) {
-  if (items.length <= 1) return items;
-  const middle = Math.floor(items.length / 2);
-  return merge(mergeSort(items.slice(0, middle), compare), mergeSort(items.slice(middle), compare), compare);
-}
-
-function merge(left, right, compare) {
-  const result = [];
-  let a = 0;
-  let b = 0;
-  while (a < left.length && b < right.length) {
-    if (compare(left[a], right[b]) <= 0) result.push(left[a++]);
-    else result.push(right[b++]);
-  }
-  return result.concat(left.slice(a), right.slice(b));
-}
-
-function renderFilters() {
-  const items = ["전체", ...topicMap.keys()];
-  filtersEl.replaceChildren(...items.map((name) => {
+function renderCategories() {
+  categoryNav.replaceChildren(...categories.map((category) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = `filter-button${activeFilter === name ? " is-active" : ""}`;
-    button.textContent = `${name} · ${name === "전체" ? works.length : topicMap.get(name).length}`;
-    button.setAttribute("aria-pressed", String(activeFilter === name));
+    button.className = `category-button${activeCategory === category ? " is-active" : ""}`;
+    button.setAttribute("aria-pressed", String(activeCategory === category));
+    button.append(document.createTextNode(category));
+    const count = document.createElement("span");
+    count.textContent = String(categoryMap.get(category).length).padStart(2, "0");
+    button.append(count);
     button.addEventListener("click", () => {
-      activeFilter = name;
-      renderFilters();
+      activeCategory = category;
+      renderCategories();
       renderGallery();
     });
     return button;
@@ -104,93 +57,51 @@ function renderFilters() {
 }
 
 function renderGallery() {
-  const query = searchInput.value.trim().toLocaleLowerCase("ko");
-  const matches = works.filter((work) => {
-    const topicMatch = activeFilter === "전체" || work.tags.includes(activeFilter);
-    const searchable = [work.title, work.subtitle, work.description, ...work.tags].join(" ").toLocaleLowerCase("ko");
-    return topicMatch && (!query || searchable.includes(query));
-  });
-  const compare = activeSort === "title"
-    ? (a, b) => a.title.localeCompare(b.title, "ko")
-    : (a, b) => (b.date || "0000-00-00").localeCompare(a.date || "0000-00-00");
-  const sorted = mergeSort(matches, compare);
-  document.querySelector("#result-count").textContent = `${sorted.length} WORK${sorted.length === 1 ? "" : "S"} · ${sorted.reduce((sum, work) => sum + work.pages.length, 0)} PAGES`;
-
-  if (!sorted.length) {
-    const empty = document.createElement("p");
-    empty.className = "empty-state";
-    empty.textContent = "검색 결과가 없습니다. 다른 기관명이나 주제로 찾아보세요.";
-    gallery.replaceChildren(empty);
-    return;
-  }
-
-  gallery.replaceChildren(...sorted.map((work) => {
-    const card = document.createElement("article");
+  const items = categoryMap.get(activeCategory);
+  document.querySelector("#category-title").textContent = activeCategory;
+  document.querySelector("#category-count").textContent = `${items.length}개 작업`;
+  gallery.replaceChildren(...items.map((work, index) => {
+    const card = document.createElement("button");
+    card.type = "button";
     card.className = "work-card";
-    card.tabIndex = 0;
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", `${work.title} 카드뉴스 ${work.pages.length}장 보기`);
+    card.setAttribute("aria-label", `${work.title}, 카드뉴스 ${work.pages.length}장 보기`);
 
-    const cover = document.createElement("div");
+    const cover = document.createElement("span");
     cover.className = "work-cover";
     const image = document.createElement("img");
     image.src = work.pages[0].image;
-    image.alt = `${work.title} 카드뉴스 첫 페이지`;
-    image.loading = "lazy";
-    const shade = document.createElement("span");
-    shade.className = "cover-shade";
-    shade.setAttribute("aria-hidden", "true");
-    const chip = document.createElement("span");
-    chip.className = "cover-chip";
-    chip.textContent = `${String(work.pages.length).padStart(2, "0")} PAGES`;
-    const openIcon = document.createElement("span");
-    openIcon.className = "cover-open";
-    openIcon.textContent = "↗";
-    openIcon.setAttribute("aria-hidden", "true");
-    cover.append(image, shade, chip, openIcon);
+    image.alt = `${work.title} 표지`;
+    image.loading = index > 2 ? "lazy" : "eager";
+    const pageCount = document.createElement("span");
+    pageCount.className = "cover-count";
+    pageCount.textContent = `${work.pages.length}장`;
+    const arrow = document.createElement("span");
+    arrow.className = "cover-arrow";
+    arrow.textContent = "↗";
+    cover.append(image, pageCount, arrow);
 
-    const meta = document.createElement("div");
-    meta.className = "work-meta";
-    const titleBlock = document.createElement("div");
-    const title = document.createElement("h3");
+    const info = document.createElement("span");
+    info.className = "work-info";
+    const title = document.createElement("strong");
     title.textContent = work.title;
-    const subtitle = document.createElement("p");
+    const subtitle = document.createElement("span");
     subtitle.textContent = work.subtitle;
-    titleBlock.append(title, subtitle);
-    const date = document.createElement("span");
-    date.className = "work-count";
-    date.textContent = work.dateLabel;
-    meta.append(titleBlock, date);
-
-    const tags = document.createElement("div");
-    tags.className = "work-tags";
-    for (const tag of work.tags) {
-      const item = document.createElement("span");
-      item.textContent = tag;
-      tags.append(item);
-    }
-    card.append(cover, meta, tags);
+    info.append(title, subtitle);
+    card.append(cover, info);
     card.addEventListener("click", () => openViewer(work, 0));
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openViewer(work, 0);
-      }
-    });
     return card;
   }));
 }
 
 function renderViewer() {
   const page = currentWork.pages[currentPage];
-  document.querySelector("#viewer-kicker").textContent = `${currentWork.subtitle} · ARTBOARD ${page.number}`;
+  document.querySelector("#viewer-kicker").textContent = `${currentWork.category} · ARTBOARD ${page.number}`;
   document.querySelector("#viewer-title").textContent = currentWork.title;
   const image = document.querySelector("#viewer-image");
   image.src = page.image;
   image.alt = `${currentWork.title} 카드뉴스 Artboard ${page.number}`;
-  document.querySelector("#viewer-page").textContent = `${String(currentPage + 1).padStart(2, "0")} / ${String(currentWork.pages.length).padStart(2, "0")}`;
-  const dots = document.querySelector("#viewer-dots");
-  dots.replaceChildren(...currentWork.pages.map((item, index) => {
+  document.querySelector("#viewer-page").textContent = `${currentPage + 1} / ${currentWork.pages.length}`;
+  document.querySelector("#viewer-dots").replaceChildren(...currentWork.pages.map((item, index) => {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.className = `viewer-dot${currentPage === index ? " is-active" : ""}`;
@@ -214,16 +125,6 @@ function movePage(direction) {
   renderViewer();
 }
 
-searchInput.addEventListener("input", renderGallery);
-document.querySelectorAll("[data-sort]").forEach((button) => button.addEventListener("click", () => {
-  activeSort = button.dataset.sort;
-  document.querySelectorAll("[data-sort]").forEach((item) => {
-    const selected = item === button;
-    item.classList.toggle("is-active", selected);
-    item.setAttribute("aria-pressed", String(selected));
-  });
-  renderGallery();
-}));
 document.querySelector(".viewer-close").addEventListener("click", () => viewer.close());
 document.querySelector(".viewer-nav.previous").addEventListener("click", () => movePage(-1));
 document.querySelector(".viewer-nav.next").addEventListener("click", () => movePage(1));
@@ -233,5 +134,5 @@ viewer.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") movePage(1);
 });
 
-renderFilters();
+renderCategories();
 renderGallery();
