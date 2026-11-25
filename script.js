@@ -1,3 +1,4 @@
+(() => {
 const categories = ["교외교육", "비교과", "전공 톺아보기"];
 const pages = (folder, numbers) => numbers.map((number) => ({
   number,
@@ -136,3 +137,4 @@ viewer.addEventListener("keydown", (event) => {
 
 renderCategories();
 renderGallery();
+})();
