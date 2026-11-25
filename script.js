@@ -13,6 +13,41 @@ const works = [
     id: "furiosa", title: "퓨리오사AI 반도체", subtitle: "퓨리오사AI · AI 반도체", date: "2026-10-07", dateLabel: "2026.10.07",
     description: "AI 추론용 반도체와 하드웨어·컴파일러의 협업을 살펴보다.", tags: ["AI 반도체", "하드웨어", "소프트웨어"],
     pages: [1, 3, 4, 7].map((number) => ({ number, image: `assets/cards/furiosa/artboard-${number}.jpg` }))
+  },
+  {
+    id: "snuti-lounge-13", title: "다른 길을 걸어온 우리", subtitle: "SNUTI in Lounge #13 · 전공과 진로", date: "2026-09-29", dateLabel: "2026.09.29",
+    description: "다른 길을 걸어온 졸업생과 함께 전공과 진로를 묻다.", tags: ["전공·진로", "SNUTI in Lounge"],
+    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/snuti-lounge-13/slide-${number}.jpg` }))
+  },
+  {
+    id: "project-management", title: "엔지니어링 프로젝트 매니지먼트", subtitle: "SNUTI on Site #2 · 현장교육", date: "2026-07-16", dateLabel: "2026.07.16",
+    description: "박창우 교수와 함께 살펴본 엔지니어링 프로젝트 관리.", tags: ["프로젝트 관리", "공학", "SNUTI on Site"],
+    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/project-management/slide-${number}.jpg` }))
+  },
+  {
+    id: "major-talk", title: "미래 산업을 이끌 다섯 전공", subtitle: "SNUTI in Lounge #9 · 전공설명회", date: "2026-05-21", dateLabel: "2026.05.21",
+    description: "첨단융합학부 다섯 전공 학생들과 만나 전공 이야기를 나누다.", tags: ["전공·진로", "전공설명회", "SNUTI in Lounge"],
+    pages: [1, 2, 3, 4, 5, 6].map((number) => ({ number, image: `assets/cards/major-talk/slide-${number}.jpg` }))
+  },
+  {
+    id: "ego-trip-7", title: "Information for Inspiration", subtitle: "SNUTI in Lounge #8 · Ego Trip 7회차", date: "2026-05-20", dateLabel: "2026.05.20",
+    description: "이지성 교수와 함께한 영감과 정보에 관한 대화.", tags: ["Ego Trip", "예술·탐색", "SNUTI in Lounge"],
+    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/ego-trip-7/slide-${number}.jpg` }))
+  },
+  {
+    id: "ego-trip-6", title: "Sound Persona", subtitle: "SNUTI in Lounge #7 · Ego Trip 6회차", date: "2026-05-13", dateLabel: "2026.05.13",
+    description: "김규동 작곡가와 함께 소리와 사람의 이야기를 듣다.", tags: ["Ego Trip", "음악", "SNUTI in Lounge"],
+    pages: [1, 2, 3, 4].map((number) => ({ number, image: `assets/cards/ego-trip-6/slide-${number}.jpg` }))
+  },
+  {
+    id: "snuti-lounge-2", title: "그림을 통해 표현하는 나", subtitle: "SNUTI in Lounge #2 · Ego Trip 2회차", date: "2026-04-01", dateLabel: "2026.04.01",
+    description: "조수현 교수와 함께 그림으로 나를 표현해 보다.", tags: ["Ego Trip", "미술", "SNUTI in Lounge"],
+    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/snuti-lounge-2/slide-${number}.jpg` }))
+  },
+  {
+    id: "ego-trip-1", title: "그림을 통해 알아가는 나", subtitle: "SNUTI in Lounge #1 · Ego Trip 1회차", date: "2025-03-18", dateLabel: "2025.03.18",
+    description: "조수현 교수와 함께 그림을 매개로 나를 알아보다.", tags: ["Ego Trip", "미술", "SNUTI in Lounge"],
+    pages: [1, 2, 3].map((number) => ({ number, image: `assets/cards/ego-trip-1/slide-${number}.jpg` }))
   }
 ];
 
