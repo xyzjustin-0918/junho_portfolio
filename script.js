@@ -22,23 +22,37 @@ const works = [
   { id: "solid-state-battery", category: "전공 톺아보기", title: "전고체 배터리의 미래", subtitle: "전공 톺아보기 Ep.1 · 지속가능기술", pages: pages("solid-state-battery", [1, 2, 3, 4, 5, 6, 8]) }
 ];
 
-// Split the array, sort both halves, then merge them in title order.
-function mergeSort(items) {
+// Event dates are taken from the covers; numbered episodes use their series order.
+const recency = {
+  kakao: { key: 1002, label: "10.02 행사" }, kist: { key: 1006, label: "10.06 행사" }, furiosa: { key: 1007, label: "10.07 행사" },
+  "snuti-lounge-13": { key: 20260929, label: "2026.09.29 행사" },
+  "project-management": { key: 20260716, label: "2026.07.16 행사" },
+  "major-talk": { key: 20260521, label: "2026.05.21 행사" },
+  "ego-trip-7": { key: 20260520, label: "2026.05.20 행사" },
+  "ego-trip-6": { key: 20260513, label: "2026.05.13 행사" },
+  "snuti-lounge-2": { key: 20260401, label: "2026.04.01 행사" },
+  "ego-trip-1": { key: 20250318, label: "2025.03.18 행사" },
+  "digital-healthcare": { key: 3, label: "Ep.3" }, "tensor-core": { key: 5, label: "Ep.5" },
+  nlp: { key: 4, label: "Ep.4" }, "solid-state-battery": { key: 1, label: "Ep.1" }
+};
+
+// Split, sort each half and merge according to the selected comparison.
+function mergeSort(items, compare) {
   if (items.length < 2) return items.slice();
   const middle = Math.floor(items.length / 2);
-  const left = mergeSort(items.slice(0, middle));
-  const right = mergeSort(items.slice(middle));
+  const left = mergeSort(items.slice(0, middle), compare);
+  const right = mergeSort(items.slice(middle), compare);
   const result = [];
   let i = 0, j = 0;
   while (i < left.length && j < right.length) {
-    if (left[i].title.localeCompare(right[j].title, "ko") <= 0) result.push(left[i++]);
+    if (compare(left[i], right[j]) <= 0) result.push(left[i++]);
     else result.push(right[j++]);
   }
   return result.concat(left.slice(i), right.slice(j));
 }
 
 let activeCategory = categories[0];
-let activeSort = "original";
+let activeSort = "recent";
 let currentWork = null;
 let currentPage = 0;
 const gallery = document.querySelector("#gallery");
@@ -69,7 +83,10 @@ function renderCategories() {
 
 function renderGallery() {
   const matches = works.filter((work) => work.category === activeCategory);
-  const items = activeSort === "title" ? mergeSort(matches) : matches;
+  const compare = activeSort === "title"
+    ? (a, b) => a.title.localeCompare(b.title, "ko")
+    : (a, b) => recency[b.id].key - recency[a.id].key;
+  const items = mergeSort(matches, compare);
   document.querySelector("#category-title").textContent = activeCategory;
   document.querySelector("#category-count").textContent = `${items.length}개 작업`;
   gallery.replaceChildren(...items.map((work, index) => {
@@ -97,7 +114,7 @@ function renderGallery() {
     const title = document.createElement("strong");
     title.textContent = work.title;
     const subtitle = document.createElement("span");
-    subtitle.textContent = work.subtitle;
+    subtitle.textContent = `${work.subtitle} · ${recency[work.id].label}`;
     info.append(title, subtitle);
     card.append(cover, info);
     card.addEventListener("click", () => openViewer(work, 0));
