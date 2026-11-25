@@ -44,6 +44,11 @@ h1, h2, h3, p { margin-top: 0; }
 .active-category { display: flex; align-items: baseline; justify-content: space-between; padding: 38px 0 18px; }
 .active-category h3 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
 .active-category span { color: var(--muted); font-size: 12px; }
+.sort-controls { display: flex; gap: 4px; }
+.sort-button { padding: 8px 12px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; }
+.sort-button.is-active { background: #e5eee7; color: var(--accent); font-weight: 700; }
+.method-note { margin: 55px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); color: #585b54; font-size: 14px; line-height: 1.8; }
+.method-note strong { color: var(--ink); }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 22px; }
 .work-card { display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; text-align: left; }
 .work-cover { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 5; background: #e9e9e2; }

@@ -22,13 +22,23 @@ const works = [
   { id: "solid-state-battery", category: "전공 톺아보기", title: "전고체 배터리의 미래", subtitle: "전공 톺아보기 Ep.1 · 지속가능기술", pages: pages("solid-state-battery", [1, 2, 3, 4, 5, 6, 8]) }
 ];
 
-// Map keeps the archive at the three broad groupings the reader needs.
-const categoryMap = new Map(categories.map((category) => [
-  category,
-  works.filter((work) => work.category === category)
-]));
+// Split the array, sort both halves, then merge them in title order.
+function mergeSort(items) {
+  if (items.length < 2) return items.slice();
+  const middle = Math.floor(items.length / 2);
+  const left = mergeSort(items.slice(0, middle));
+  const right = mergeSort(items.slice(middle));
+  const result = [];
+  let i = 0, j = 0;
+  while (i < left.length && j < right.length) {
+    if (left[i].title.localeCompare(right[j].title, "ko") <= 0) result.push(left[i++]);
+    else result.push(right[j++]);
+  }
+  return result.concat(left.slice(i), right.slice(j));
+}
 
 let activeCategory = categories[0];
+let activeSort = "original";
 let currentWork = null;
 let currentPage = 0;
 const gallery = document.querySelector("#gallery");
@@ -46,7 +56,7 @@ function renderCategories() {
     button.setAttribute("aria-pressed", String(activeCategory === category));
     button.append(document.createTextNode(category));
     const count = document.createElement("span");
-    count.textContent = String(categoryMap.get(category).length).padStart(2, "0");
+    count.textContent = String(works.filter((work) => work.category === category).length).padStart(2, "0");
     button.append(count);
     button.addEventListener("click", () => {
       activeCategory = category;
@@ -58,7 +68,8 @@ function renderCategories() {
 }
 
 function renderGallery() {
-  const items = categoryMap.get(activeCategory);
+  const matches = works.filter((work) => work.category === activeCategory);
+  const items = activeSort === "title" ? mergeSort(matches) : matches;
   document.querySelector("#category-title").textContent = activeCategory;
   document.querySelector("#category-count").textContent = `${items.length}개 작업`;
   gallery.replaceChildren(...items.map((work, index) => {
@@ -127,6 +138,15 @@ function movePage(direction) {
 }
 
 document.querySelector(".viewer-close").addEventListener("click", () => viewer.close());
+document.querySelectorAll(".sort-button").forEach((button) => button.addEventListener("click", () => {
+  activeSort = button.dataset.sort;
+  document.querySelectorAll(".sort-button").forEach((item) => {
+    const selected = item === button;
+    item.classList.toggle("is-active", selected);
+    item.setAttribute("aria-pressed", String(selected));
+  });
+  renderGallery();
+}));
 document.querySelector(".viewer-nav.previous").addEventListener("click", () => movePage(-1));
 document.querySelector(".viewer-nav.next").addEventListener("click", () => movePage(1));
 viewer.addEventListener("click", (event) => { if (event.target === viewer) viewer.close(); });
