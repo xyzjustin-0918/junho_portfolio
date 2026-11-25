@@ -114,7 +114,7 @@ function renderGallery() {
     const title = document.createElement("strong");
     title.textContent = work.title;
     const subtitle = document.createElement("span");
-    subtitle.textContent = `${work.subtitle} · ${recency[work.id].label}`;
+    subtitle.textContent = work.category === "전공 톺아보기" ? work.subtitle : `${work.subtitle} · ${recency[work.id].label}`;
     info.append(title, subtitle);
     card.append(cover, info);
     card.addEventListener("click", () => openViewer(work, 0));
