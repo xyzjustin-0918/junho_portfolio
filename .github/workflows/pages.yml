@@ -32,6 +32,8 @@ jobs:
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: .
+      - name: Wait for uploaded artifact indexing
+        run: sleep 20
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
