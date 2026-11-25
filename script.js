@@ -2,7 +2,7 @@
 const categories = ["교외교육", "비교과", "전공 톺아보기"];
 const pages = (folder, numbers) => numbers.map((number) => ({
   number,
-  image: `assets/cards/${folder}/artboard-${number}.jpg`
+  image: `assets/cards/${folder}/${["kakao", "kist", "furiosa", "digital-healthcare", "tensor-core", "nlp", "solid-state-battery"].includes(folder) ? "artboard" : "slide"}-${number}.jpg`
 }));
 
 const works = [
